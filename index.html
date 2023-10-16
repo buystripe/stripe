@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Digital Media Promotion</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" href="icon.png" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">  -->
+<!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+<!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+<!-- <link href="https://fonts.googleapis.com/css?family=Poppins:ital,wght@0, 200;0, 300;0,400; 0,500; 0, 600;0, 700;0, 800;1,50 0&display=swap" rel="stylesheet"> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>  -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> -->
+▼
+<style>
+    body {
+        background: #f5f5f5;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .header_top {
+        padding: 25px;
+        background-color: #ffff;
+        margin-bottom: 25px;
+        text-align: center;
+        font-weight: 700;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+
+    .main_home {
+        padding: 0px;
+    }
+
+    .main_div {
+        padding: 25px;
+        background-color: #fff;
+        margin-bottom: 25px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+
+    .div_head {
+        margin-bottom: 5px;
+        text-align: center;
+        font-weight: 500;
+        font-size: 21px;
+    }
+
+    .div_label {
+        font-size: 13px;
+        color: #0000008c;
+        font-weight: 400;
+    }
+
+    .input_amount_div {
+        background-color: #f2f2f2;
+        width: 110px;
+        height: 50px;
+        padding: 20px;
+        color: #000;
+        line-height: 24px;
+        padding: 12px 20px;
+        margin: auto;
+        font-size: 20px;
+        font-weight: 500;
+        border-radius: 8px;
+        display: inline-block;
+        border: none !important;
+        outline: none !important;
+        margin-bottom: 40px;
+    }
+
+    .bottom_p {
+        font-size: 13px;
+        color: #000;
+        margin-bottom: 20px;
+    }
+
+    .hrr {
+        border-bottom: 1px solid #d3d3d3;
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+
+    .bbtn {
+        background-color: #006AFF;
+        border: none;
+        border-radius: 5px;
+        color: #fff !important;
+        cursor: pointer;
+        text-decoration: none !important;
+        font-size: 15px;
+        font-weight: 400;
+        width: 100%;
+        padding: 15px 20px;
+        text-align: center !important;
+    }
+
+    .my_alert {
+        color: red;
+        font-size: 12px;
+    }
+
+    .foot_p {
+        color: #71767b;
+        font-size: 14px;
+    }
+</style>
+</head>
+<body>
+    <div>
+        <div class="header_top"> Digital Media Promotion </div> <div class="main_home">
+            <div class="main_div">
+                <form action="checkout.html" method="GET">
+                    <center>
+                        <p class="div_head">Digital Media Promotion</p>
+                        <p class="div_label">ENTER AMOUNT</p>
+                        <input type="text" id="amountField" class="input_amount_div" placeholder="$0.00" name="amount">
+                     <p class="my_alert" style="display: none;">Enter an amount between $1.00 and $50,000.00</p>
+                        <p class="bottom_p">For any query, contact +1-989-613-7474</p>
+                        <hr class="hrr">
+                        <button type="submit" class="btn bt-info bbtn" id="checkoutButton">Checkout</button> 
+                    </center>
+                </form>
+            </div>
+                <center>
+                        <img src="square.png" style="width: 50px;">
+                        <p class="foot_p">Secure payment by Square</p> 
+                </center>
+        </div>
+    </div>
+</body>
+<script>
+    var checkoutButton = document.getElementById('checkoutButton');
+    var amountField = document.getElementById('amountField');
+    document.addEventListener('DOMContentLoaded', function() {
+        var myAlert = document.querySelector('.my_alert');
+
+        amountField.addEventListener('keyup', function() {
+            var oldvalue = amountField.value;
+                if (!amountField.value.startsWith('$')) {
+                    amountField.value = "$" + oldvalue;
+                }
+            // amountField.value = amountField.value.replace(/[^0-9]/g, '');
+            amountField.value = amountField.value.split(" ").join("");
+            if (amountField.value.trim().length < 2) {
+                if (myAlert) {
+                    myAlert.style.display = 'block';
+                }
+            }
+            else {
+                if (myAlert) {
+                    myAlert.style.display = 'none';
+                }
+            }
+        });
+
+    });
+    checkoutButton.addEventListener('click', function() {
+            var enteredAmount = amountField.value.slice(2);
+            window.location.href = 'checkout.html?amount=' + encodeURIComponent(enteredAmount);
+        });
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

